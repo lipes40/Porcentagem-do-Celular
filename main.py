@@ -6,8 +6,6 @@ from fastapi import Form
 
 app = FastAPI()
 
-app.mount("/static", StaticFiles(directory="static"), name="static")
-
 @app.get("/")
 
 def index():
