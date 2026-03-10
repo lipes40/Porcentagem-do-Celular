@@ -48,12 +48,17 @@
             align-items: center;
             justify-content: center;
         }
+
+        .descobrir{
+            background-color: #ff3c00;
+        }
     </style>
 </head>
 <body>
     <div>
         <input id="hora" placeholder="Insira a hora que quer saber" type="text" name="hora" id="">
-        <button onclick="descobrir()">Descobrir</button>
+        <button onclick="agora()">Descobrir na hora atual</button>
+        <button class="Descobrir" onclick="descobrir()">Descobrir</button>
     </div>
     <pre id="saida"></pre>
 </body>
@@ -73,6 +78,20 @@
         const data = await res.json()
         saida.innerText = data.resultado
 
+    }
+
+    function agora() {
+        const horario = new Date()
+        const hora = horario.getHours()
+        const minutos = horario.getMinutes()
+        
+        const hora_formatada = hora + ":" + minutos
+        console.log(hora_formatada)
+        
+        const input = document.getElementById("hora")
+        input.value = hora_formatada
+        
+        descobrir()
     }
 </script>
 </html>
