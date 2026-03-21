@@ -27,7 +27,7 @@
 
         button{
             border: none;
-            background-color: #0000FF;
+            background-color: #5353ec;
             border-radius: 10px;
             width: 50vw;
             font-size: large;
@@ -67,6 +67,8 @@
         const hora = document.getElementById("hora").value
         const saida = document.getElementById("saida")
 
+        carregando(saida)
+
         const res = await fetch("/descobrir", {
             method: "POST",
             headers: { "Content-Type": "application/json"},
@@ -92,6 +94,10 @@
         input.value = hora_formatada
         
         descobrir()
+    }
+
+    function carregando(saida){
+        saida.innerText = "carregando..."
     }
 </script>
 </html>
